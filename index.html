@@ -1,0 +1,137 @@
+<<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PinkBook - Quản Lý Cửa Hàng Sách</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- MÀN HÌNH ĐĂNG NHẬP -->
+    <div class="auth-container" id="loginView">
+        <div class="auth-card">
+            <div class="brand">
+                <i class="fa-solid fa-book-open-reader"></i>
+                <h2>PinkBook Manager</h2>
+            </div>
+            <h3>Đăng Nhập</h3>
+            <div id="loginError" class="error-msg"></div>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label><i class="fa-solid fa-phone"></i> Số điện thoại</label>
+                    <input type="text" id="loginPhone" placeholder="Nhập số điện thoại" required>
+                </div>
+                <div class="input-group">
+                    <label><i class="fa-solid fa-lock"></i> Mật khẩu</label>
+                    <input type="password" id="loginPassword" placeholder="Nhập mật khẩu" required>
+                </div>
+                <button type="submit" class="btn-primary">Đăng Nhập</button>
+            </form>
+            <p class="switch-mode">Chưa có tài khoản? <a href="#" id="toRegister">Đăng ký ngay</a></p>
+        </div>
+    </div>
+
+    <!-- MÀN HÌNH ĐĂNG KÝ -->
+    <div class="auth-container hidden" id="registerView">
+        <div class="auth-card">
+            <div class="brand">
+                <i class="fa-solid fa-book-open-reader"></i>
+                <h2>PinkBook Manager</h2>
+            </div>
+            <h3>Đăng Ký Tài Khoản</h3>
+            <div id="registerError" class="error-msg"></div>
+            <form id="registerForm">
+                <div class="input-group">
+                    <label>Họ và tên</label>
+                    <input type="text" id="regName" placeholder="Nhập họ và tên" required>
+                </div>
+                <div class="input-group">
+                    <label>Ngày tháng năm sinh</label>
+                    <input type="date" id="regDob" required>
+                </div>
+                <div class="input-group">
+                    <label>Số điện thoại</label>
+                    <input type="text" id="regPhone" placeholder="Nhập số điện thoại" required>
+                </div>
+                <div class="input-group">
+                    <label>Mật khẩu</label>
+                    <input type="password" id="regPassword" placeholder="Nhập mật khẩu" required>
+                </div>
+                <div class="input-group">
+                    <label>Nhập lại mật khẩu</label>
+                    <input type="password" id="regConfirmPassword" placeholder="Nhập lại mật khẩu" required>
+                </div>
+                <button type="submit" class="btn-primary">Đăng Ký</button>
+            </form>
+            <p class="switch-mode">Đã có tài khoản? <a href="#" id="toLogin">Đăng nhập</a></p>
+        </div>
+    </div>
+
+    <!-- TRANG CHỦ QUẢN LÝ (Sau khi đăng nhập thành công) -->
+    <div id="mainDashboard" class="hidden">
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-book-open-reader"></i>
+                <span>PinkBook Manager</span>
+            </div>
+            <div class="user-info">
+                <span>Xin chào, <strong id="currentUser">Admin</strong>!</span>
+                <button id="btnLogout" class="btn-logout"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</button>
+            </div>
+        </header>
+
+        <main class="dashboard">
+            <section class="stats-container">
+                <div class="stat-card">
+                    <i class="fa-solid fa-books"></i>
+                    <div class="stat-info"><h3>1,250</h3><p>Tổng đầu sách</p></div>
+                </div>
+                <div class="stat-card">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <div class="stat-info"><h3>348</h3><p>Đơn hàng hôm nay</p></div>
+                </div>
+                <div class="stat-card">
+                    <i class="fa-solid fa-receipt"></i>
+                    <div class="stat-info"><h3>15.2M</h3><p>Doanh thu (VNĐ)</p></div>
+                </div>
+            </section>
+
+            <section class="table-container">
+                <div class="table-header">
+                    <h2><i class="fa-solid fa-list-check"></i> Danh Sách Kho Sách</h2>
+                    <button class="btn-add"><i class="fa-solid fa-plus"></i> Thêm sách mới</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mã sách</th>
+                            <th>Tên sách</th>
+                            <th>Thể loại</th>
+                            <th>Giá bán</th>
+                            <th>Tồn kho</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#BS001</td>
+                            <td><strong>Nhà Giả Kim</strong></td>
+                            <td><span class="badge">Văn học</span></td>
+                            <td>79.000đ</td>
+                            <td>45</td>
+                            <td>
+                                <button class="btn-action edit"><i class="fa-solid fa-pen"></i></button>
+                                <button class="btn-action delete"><i class="fa-solid fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
